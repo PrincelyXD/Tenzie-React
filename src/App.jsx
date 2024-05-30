@@ -1,0 +1,85 @@
+import "./App.css";
+import Confetti from "react-confetti";
+import { nanoid } from "nanoid";
+import { useEffect, useState } from "react";
+import Die from "./components/Die";
+import RollBtn from "./ui/RollBtn";
+
+// set state as a function that generates objects reprsenting all dice values
+//  create an array of 10 different numbers from 1-6
+function App() {
+  const [allDice, setAllDice] = useState(allNewDice());
+  const [tenzies, setTenzies] = useState(false);
+
+  useEffect(() => {
+    const held = allDice.every((die) => die.isHeld);
+    const firstValue = allDice[0].value;
+    const equalValues = allDice.every((die) => die.value === firstValue);
+    if (held && equalValues) {
+      setTenzies(true);
+    }
+  }, [allDice]);
+
+  function generateNewDie() {
+    return { id: nanoid(), value: Math.ceil(Math.random() * 6), isHeld: false };
+  }
+
+  function allNewDice() {
+    const diceArray = [];
+    for (let i = 1; i < 11; i++) {
+      const diceObj = generateNewDie();
+      diceArray.push(diceObj);
+    }
+    return diceArray;
+  }
+  // conditional statement added to enable resetting of game
+  function rollAllDice() {
+    if (!tenzies) {
+      setAllDice((oldDice) =>
+        oldDice.map((die) => {
+          return die.isHeld ? die : generateNewDie();
+        })
+      );
+    } else {
+      setAllDice(allNewDice());
+      setTenzies(false);
+    }
+  }
+
+  function holdDice(id) {
+    setAllDice((oldDice) =>
+      oldDice.map((die) => {
+        return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
+      })
+    );
+  }
+
+  return (
+    <div className="App">
+      {tenzies && <Confetti />}
+      <div className="box-container">
+        <h2 className="header"> {tenzies ? "You Win!" : "Tenzies"}</h2>
+        <p className="text">
+          {tenzies
+            ? "Hey Champ, toutes nos félicitations. Hit the 'New Game' button to reset the game have fun! "
+            : "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}
+        </p>
+              
+        <div className="dice-box">
+          {allDice.map((obj) => (
+            <Die
+              value={obj.value}
+              isHeld={obj.isHeld}
+              key={obj.id}
+              handleClick={() => holdDice(obj.id)}
+            />
+          ))}
+        </div>
+
+        <RollBtn handleClick={rollAllDice} text={tenzies} />
+      </div>
+    </div>
+  );
+}
+
+export default App;
