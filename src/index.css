@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 body{
     background: radial-gradient(ellipse at center, #192d38 0, #211f2f 100%);
 }

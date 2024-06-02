@@ -19,7 +19,6 @@ function App() {
       setTenzies(true);
     }
   }, [allDice]);
-
   function generateNewDie() {
     return { id: nanoid(), value: Math.ceil(Math.random() * 6), isHeld: false };
   }
@@ -83,3 +82,6 @@ function App() {
 }
 
 export default App;
+
+
+// write pseudo code to turn die fsces to real die faces

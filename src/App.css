@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lobster&display=swap');
 
 .App {
   width: 80%;
@@ -28,6 +27,7 @@
   font-weight: 500;
   font-size: 30px;
   text-align: center;
+  font-family: "Lobster", sans-serif;
 }
 
 .text {
@@ -85,7 +85,7 @@
     margin: 5% auto;
   }
   .header {
-    font-size: 35px;
+    font-size: 40px;
   }
   .text {
     font-size: 18px;
