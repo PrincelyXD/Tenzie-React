@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Die from "./components/Die";
 import RollBtn from "./ui/RollBtn";
 import RollSound from "./assets/audio-files/rollsound.mp3"
+import clickDie from './assets/audio-files/click.mp3'
 import HamBurger from "./components/HamBurger";
 
 
@@ -58,6 +59,7 @@ function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
+    playControl && new Audio(clickDie).play()
 
   }
 

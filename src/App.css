@@ -89,10 +89,11 @@
   top: 10px;
   left: 40px;
   position: absolute;
-  width: 110px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
+  overflow: hidden;
   background-color: #fff;
-  border-radius: 0px 5px 0px 5px;
+  border-radius: 0px 8px 0px 8px;
   box-shadow: 0px 3px 3px 0px #00000026;
 }
 
@@ -102,8 +103,12 @@
   list-style-type: none;
 }
 .dropdown ul li {
-  padding: 8px 0px;
+  padding: 10px 5px;
   cursor: pointer;
+}
+
+.dropdown li span {
+  font-size: 20px;
 }
 .dropdown li:hover {
   background-color: #4a4e74;
@@ -161,5 +166,17 @@
 
   .RollBtn button {
     font-size: 1.3rem;
+  }
+
+  .dropdown {
+    width: 110px;
+    height: 100px;
+  }
+
+  .dropdown ul li {
+    padding: 10px;
+  }
+  .dropdown li span {
+    font-size: 24px;
   }
 }
