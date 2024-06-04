@@ -1,11 +1,10 @@
 function Die({ value, isHeld, handleClick }) {
   return (
     <div
-      className="Die"
+      className={`Die num${value}die`}
       style={{ backgroundColor: isHeld && "#59E391" }}
       onClick={handleClick}
     >
-      <h3> {value}</h3>
     </div>
   );
 }

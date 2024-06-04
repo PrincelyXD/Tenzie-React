@@ -4,12 +4,17 @@ import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 import Die from "./components/Die";
 import RollBtn from "./ui/RollBtn";
+import RollSound from "./assets/audio-files/rollsound.mp3"
+import HamBurger from "./components/HamBurger";
+
+
 
 // set state as a function that generates objects reprsenting all dice values
 //  create an array of 10 different numbers from 1-6
 function App() {
   const [allDice, setAllDice] = useState(allNewDice());
   const [tenzies, setTenzies] = useState(false);
+  const [playControl, setPlayControll] = useState(false)
 
   useEffect(() => {
     const held = allDice.every((die) => die.isHeld);
@@ -43,6 +48,8 @@ function App() {
       setAllDice(allNewDice());
       setTenzies(false);
     }
+
+    playControl && new Audio(RollSound).play()
   }
 
   function holdDice(id) {
@@ -51,6 +58,16 @@ function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
+
+  }
+
+  function playAudio() {
+    setPlayControll(prevValue => !prevValue)
+  }
+
+  function hardReset() {
+    setAllDice(allNewDice());
+      setTenzies(false);
   }
 
   return (
@@ -74,8 +91,11 @@ function App() {
             />
           ))}
         </div>
-
-        <RollBtn handleClick={rollAllDice} text={tenzies} />
+            <div className="btn-cont">
+                <HamBurger handleSoundClick ={playAudio} soundValue ={playControl} reset={hardReset}/>
+               <RollBtn handleClick={rollAllDice} text={tenzies} />
+              
+            </div>
       </div>
     </div>
   );
@@ -85,3 +105,5 @@ export default App;
 
 
 // write pseudo code to turn die fsces to real die faces
+
+// if die.value === 4 render die1 
