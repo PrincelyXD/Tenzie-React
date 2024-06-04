@@ -4,18 +4,16 @@ import { nanoid } from "nanoid";
 import { useEffect, useState } from "react";
 import Die from "./components/Die";
 import RollBtn from "./ui/RollBtn";
-import RollSound from "./assets/audio-files/rollsound.mp3"
-import clickDie from './assets/audio-files/click.mp3'
+import RollSound from "./assets/audio-files/rollsound.mp3";
+import clickDie from "./assets/audio-files/click.mp3";
 import HamBurger from "./components/HamBurger";
-
-
 
 // set state as a function that generates objects reprsenting all dice values
 //  create an array of 10 different numbers from 1-6
 function App() {
   const [allDice, setAllDice] = useState(allNewDice());
   const [tenzies, setTenzies] = useState(false);
-  const [playControl, setPlayControll] = useState(false)
+  const [playControl, setPlayControll] = useState(false);
 
   useEffect(() => {
     const held = allDice.every((die) => die.isHeld);
@@ -50,7 +48,7 @@ function App() {
       setTenzies(false);
     }
 
-    playControl && new Audio(RollSound).play()
+    playControl && new Audio(RollSound).play();
   }
 
   function holdDice(id) {
@@ -59,17 +57,16 @@ function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
-    playControl && new Audio(clickDie).play()
-
+    playControl && new Audio(clickDie).play();
   }
 
   function playAudio() {
-    setPlayControll(prevValue => !prevValue)
+    setPlayControll((prevValue) => !prevValue);
   }
 
   function hardReset() {
     setAllDice(allNewDice());
-      setTenzies(false);
+    setTenzies(false);
   }
 
   return (
@@ -82,7 +79,7 @@ function App() {
             ? "Hey Champ, toutes nos félicitations. Hit the 'New Game' button to reset the game have fun! "
             : "Roll until all dice are the same. Click each die to freeze it at its current value between rolls."}
         </p>
-              
+
         <div className="dice-box">
           {allDice.map((obj) => (
             <Die
@@ -93,11 +90,14 @@ function App() {
             />
           ))}
         </div>
-            <div className="btn-cont">
-                <HamBurger handleSoundClick ={playAudio} soundValue ={playControl} reset={hardReset}/>
-               <RollBtn handleClick={rollAllDice} text={tenzies} />
-              
-            </div>
+        <div className="btn-cont">
+          <HamBurger
+            handleSoundClick={playAudio}
+            soundValue={playControl}
+            reset={hardReset}
+          />
+          <RollBtn handleClick={rollAllDice} text={tenzies} />
+        </div>
       </div>
     </div>
   );
@@ -105,7 +105,6 @@ function App() {
 
 export default App;
 
-
 // write pseudo code to turn die fsces to real die faces
 
-// if die.value === 4 render die1 
+// if die.value === 4 render die1
