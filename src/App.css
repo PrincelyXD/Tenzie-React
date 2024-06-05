@@ -97,8 +97,8 @@
   top: 10px;
   left: 40px;
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: fit-content;
+  height: fit-content;
   overflow: hidden;
   background-color: #fff;
   border-radius: 0px 8px 0px 8px;
