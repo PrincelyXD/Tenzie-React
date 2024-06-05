@@ -70,9 +70,13 @@ function App() {
   }
 
   return (
+
     <div className="App">
+
       {tenzies && <Confetti />}
-      <div className="box-container">
+
+      <div className="wrapper">
+<div className="box-container">
         <h2 className="header"> {tenzies ? "You Win!" : "Tenzies"}</h2>
         <p className="text">
           {tenzies
@@ -99,6 +103,8 @@ function App() {
           <RollBtn handleClick={rollAllDice} text={tenzies} />
         </div>
       </div>
+      </div>
+      
     </div>
   );
 }

@@ -1,17 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lobster&display=swap");
 
 .App {
-  width: 80%;
-  height: 100%;
+  width: 98%;
   min-width: 350px;
   max-width: 450px;
   margin: 0px auto;
-  margin-top: 15px;
-  display: flex;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  border-radius: 10px;
+  background-color: blue;
+  background-color: #f5f5f5;
+}
+
+.wrapper{
+  height: 100vh;
+  min-height: 100vh;
+    display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  background-color: #f5f5f5;
+  /* background-color: red; */
 }
 
 .box-container {
@@ -65,7 +73,7 @@
 }
 
 .RollBtn {
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 .RollBtn button {
   color: #f5f5f5;
@@ -137,6 +145,10 @@
   .App {
     height: 500px;
     margin: 5% auto;
+  }
+
+  .wrapper{
+    height: 100%;
   }
   .header {
     font-size: 40px;
