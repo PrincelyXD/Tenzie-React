@@ -8,6 +8,7 @@ import RollSound from "./assets/audio-files/rollsound.mp3";
 import clickDie from "./assets/audio-files/click.mp3";
 import HamBurger from "./components/HamBurger";
 
+
 // set state as a function that generates objects reprsenting all dice values
 //  create an array of 10 different numbers from 1-6
 function App() {
@@ -75,8 +76,8 @@ function App() {
 
       {tenzies && <Confetti />}
 
-      <div className="wrapper">
-<div className="box-container">
+      
+      <div className="box-container">
         <h2 className="header"> {tenzies ? "You Win!" : "Tenzies"}</h2>
         <p className="text">
           {tenzies
@@ -105,7 +106,7 @@ function App() {
       </div>
       </div>
       
-    </div>
+    
   );
 }
 

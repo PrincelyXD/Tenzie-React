@@ -1,39 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Lobster&display=swap");
 
 .App {
-  width: 98%;
-  min-width: 350px;
-  max-width: 450px;
-  margin: 0px auto;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  border-radius: 10px;
-  background-color: blue;
-  background-color: #f5f5f5;
-}
-
-.wrapper{
-  height: 100vh;
-  min-height: 100vh;
-    display: flex;
+  width: 100%;
+  min-width: 300px;
+  height: 97vh;
+  display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
 }
 
+
+
 .box-container {
-  max-width: 390px;
-  margin: 0 auto;
-  text-align: center;
+  width: 95%;
+  height: 95%;
+  padding: 0px 20px;
+  border-radius: 10px;
+  background-color: #f5f5f5;
   font-family: Inter, sans-serif;
 }
 
 .header {
-  margin: 15px;
+  margin: 20px;
   margin-bottom: 10px;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   font-family: "Lobster", sans-serif;
 }
@@ -71,18 +62,34 @@
   background-size: 155%;
   background-position: center;
 }
-
-.RollBtn {
-  /* margin-bottom: 15px; */
+.btn-cont{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  margin-top: -25px;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
+
+
+.hamburger{
+  align-self: start;
+  margin-left: -30px;
+}
+
 .RollBtn button {
   color: #f5f5f5;
   background-color: #5035ff;
   font-size: 1rem;
   padding: 13px 30px;
-  border-radius: 8px;
+  border-radius: 5px;
   border: none;
   cursor: pointer;
+  background-image: url(./assets/images/repl.png);
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: center;
 }
 
 .RollBtn :active {
@@ -97,7 +104,7 @@
   top: 10px;
   left: 40px;
   position: absolute;
-  width: fit-content;
+  width:90px;
   height: fit-content;
   overflow: hidden;
   background-color: #fff;
@@ -142,14 +149,13 @@
 }
 
 @media (min-width: 510px) {
-  .App {
-    height: 500px;
-    margin: 5% auto;
-  }
 
-  .wrapper{
-    height: 100%;
-  }
+.box-container {
+  width: 500px;
+  height: 500px;
+  padding: 0px 50px;
+}
+
   .header {
     font-size: 40px;
   }
@@ -161,7 +167,6 @@
   }
   .dice-box {
     width: 100%;
-    margin: 35px 5px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 35px;
@@ -170,6 +175,10 @@
   .Die {
     width: 50px;
     height: 50px;
+  }
+
+  .btn-cont{
+    margin-top: 0px;
   }
 
   .RollBtn {
