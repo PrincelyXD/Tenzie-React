@@ -7,7 +7,7 @@ import RollBtn from "./ui/RollBtn";
 import RollSound from "./assets/audio-files/rollsound.mp3";
 import clickDie from "./assets/audio-files/click.mp3";
 import HamBurger from "./components/HamBurger";
-
+import { motion, AnimatePresence, transform, delay } from "framer-motion";
 
 // set state as a function that generates objects reprsenting all dice values
 //  create an array of 10 different numbers from 1-6
@@ -71,13 +71,15 @@ function App() {
   }
 
   return (
-
     <div className="App">
-
       {tenzies && <Confetti />}
 
-      
-      <div className="box-container">
+      <motion.div
+        initial={{ opacity: 0, transform: "translateY(50px)" }}
+        animate={{ opacity: 1, transform: "translateY(0px)" }}
+        // transition={{ delay: 0.5, type: "spring" }}
+        className="box-container"
+      >
         <h2 className="header"> {tenzies ? "You Win!" : "Tenzies"}</h2>
         <p className="text">
           {tenzies
@@ -87,12 +89,18 @@ function App() {
 
         <div className="dice-box">
           {allDice.map((obj) => (
-            <Die
-              value={obj.value}
-              isHeld={obj.isHeld}
-              key={obj.id}
-              handleClick={() => holdDice(obj.id)}
-            />
+            <motion.div
+              initial={{ opacity: 0, transform: "translateY(50px)" }}
+              animate={{ opacity: 1, transform: "translateY(0px)" }}
+              transition={{ delay: 0.6, type: "spring" }}
+            >
+              <Die
+                value={obj.value}
+                isHeld={obj.isHeld}
+                key={obj.id}
+                handleClick={() => holdDice(obj.id)}
+              />
+            </motion.div>
           ))}
         </div>
         <div className="btn-cont">
@@ -103,10 +111,8 @@ function App() {
           />
           <RollBtn handleClick={rollAllDice} text={tenzies} />
         </div>
-      </div>
-      </div>
-      
-    
+      </motion.div>
+    </div>
   );
 }
 
