@@ -1,8 +1,2 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# wanna game ?
+Tenzie- react is a simple and addictive dice game built with React. The objective is to roll ten dice until all of them show the same number. Players can lock individual dice to keep their values between rolls. The game provides an interactive and dynamic experience, with real-time updates and a clean, responsive design, showcasing the power of React for creating engaging web applications.
